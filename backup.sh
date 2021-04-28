@@ -5,13 +5,13 @@
 # Dokumenter mv: placeres i mappen backup_dokumenter
 
 # path to backup
-buPath=/media/PATH-TO-YOUR-BACKUP-DRIVE
+buPath=/PATH-TO-BACKUP-DRIVE
 
 # system backup (dvs. / uden /home)
-rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/${buPath}/*","/>
+rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/${buPath}/*","/lost+found","/home/*"} / ${buPath}backup_ubuntu/
 
 # backup fra harddisk med dokumenter (home partitionen)
-rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/media/${buPath}/*","/lost+foun>
+rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/media/${buPath}/*","/lost+found"} /mnt/harddisk/ ${buPath}backup_dokumenter/
 
 # test: hvordan er stien formatteret?
 # echo ${buPath}backup_dokumenter
