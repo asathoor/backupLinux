@@ -5,7 +5,7 @@
 # Dokumenter mv: placeres i mappen backup_dokumenter
 
 # path to backup
-buPath=/PATH-TO-BACKUP-DRIVE
+buPath=/PATH-TO-BACKUP-DRIVE/
 
 # system backup (dvs. / uden /home)
 rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/${buPath}/*","/lost+found","/home/*"} / ${buPath}backup_ubuntu/
