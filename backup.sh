@@ -11,7 +11,7 @@ buPath=/PATH-TO-BACKUP-DRIVE
 rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/${buPath}/*","/lost+found","/home/*"} / ${buPath}backup_ubuntu/
 
 # backup fra harddisk med dokumenter (home partitionen)
-rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/media/${buPath}/*","/lost+found"} /mnt/harddisk/ ${buPath}backup_dokumenter/
+rsync -aAXH --info=progress2 --delete /mnt/harddisk/ ${buPath}backup_dokumenter/
 
 # test: hvordan er stien formatteret?
 # echo ${buPath}backup_dokumenter
