@@ -1,14 +1,16 @@
-#!/bin/bash
 # Backup hele systemet
 
 # info
-echo Begynder backup | cowsay | lolcat
+echo Begynder backup
 
-# path to backup media
-buPath = /enterYourPathToBackupMediaHere
+# path to backup
+buPath=/BACKUP_DISK_PATH_HERE
 
-# rsync options exclude from to
-rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $buPath
+# system backup
+rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/${buPath}/*","/lost+found"} / $buPath
 
-# wisdom of the cow
-echo Backup færdig | cowsay | lolcat
+# backup fra harddisk med dokumenter
+rsync -aAXH --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/media/${buPath}/*","/lost+found"} /mnt/harddisk ${buPath}backup_dokumenter/
+
+#test
+echo ${buPath}backup_dokumenter
